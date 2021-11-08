@@ -20,9 +20,15 @@ function getPasswordLength() {
   // Check if the inputted string is an integer between 8 and 128. If it isn't, reprompt the user
   if (passwordLength != null && Number.isInteger(parseFloat(passwordLength)) && parseInt(passwordLength) >=8 && parseInt(passwordLength) <=128)
   {
-    // 
-    confirmLowercaseCharacters();
-    return;
+    // THEN my input should be validated
+    var proceed = confirm("Are you sure that you would like to include " + passwordLength + " characters?");
+    if (proceed) {
+      // check whether to include lowercase characters next 
+      confirmLowercaseCharacters();
+      return;
+    } else {
+      getPasswordLength();
+    }
     // if the person clicks cancel (and therefore the value is null), exit the prompt
   } else if (passwordLength === null ) {
     return;
@@ -35,8 +41,16 @@ function getPasswordLength() {
 function confirmLowercaseCharacters() {
   var isLowercase = prompt("Please respond with \"Yes\" or \"No\" to indicate whether you would like to include lowercase characters")
   if (isLowercase === "Yes" || isLowercase === "No") {
-    confirmUppercaseCharacters();
-    return;
+    // THEN my input should be validated
+    var proceed = confirm("Are you sure that you would like to keep your answer as \"" + isLowercase + "\" for including lowercase characters?");
+    if (proceed) {
+      // check whether to include uppercase characters next 
+      confirmUppercaseCharacters();
+      return;
+    } else {
+      confirmLowercaseCharacters() ;
+    }
+    
   } else if (isLowercase === null ) {
     return;
   } else {
@@ -47,8 +61,16 @@ function confirmLowercaseCharacters() {
 function confirmUppercaseCharacters() {
   var isUppercase = prompt("Please respond with \"Yes\" or \"No\" to indicate whether you would like to include uppercase characters")
   if (isUppercase === "Yes" || isUppercase === "No") {
-    confirmNumericCharacters();
-    return;
+    // THEN my input should be validated
+    var proceed = confirm("Are you sure that you would like to keep your answer as \"" + isUppercase + "\" for including uppercase characters?");
+    if (proceed) {
+      // check whether to include numeric characters next 
+      confirmNumericCharacters();
+      return;
+    } else {
+      confirmUppercaseCharacters() ;
+    }
+
   } else if (isUppercase === null ) {
     return;
   } else {
@@ -59,8 +81,16 @@ function confirmUppercaseCharacters() {
 function confirmNumericCharacters() {
   var isNumeric = prompt("Please respond with \"Yes\" or \"No\" to indicate whether you would like to include numeric characters")
   if (isNumeric === "Yes" || isNumeric === "No") {
-    confirmSpecialCharacters();
-    return;
+    // THEN my input should be validated
+    var proceed = confirm("Are you sure that you would like to keep your answer as \"" + isNumeric + "\" for including numeric characters?");
+    if (proceed) {
+      // check whether to include special characters next 
+      confirmSpecialCharacters();
+      return;
+    } else {
+      confirmNumericCharacters() ;
+    }
+
   } else if (isNumeric === null ) {
     return;
   } else {
@@ -71,8 +101,16 @@ function confirmNumericCharacters() {
 function confirmSpecialCharacters() {
   var isSpecial = prompt("Please respond with \"Yes\" or \"No\" to indicate whether you would like to include special characters")
   if (isSpecial === "Yes" || isSpecial === "No") {
-    document.getElementById("password").innerHTML = isSpecial;
-    return;
+    // THEN my input should be validated
+    var proceed = confirm("Are you sure that you would like to keep your answer as \"" + isSpecial + "\" for including special characters?");
+    if (proceed) {
+      // print the answer to the screen 
+      document.getElementById("password").innerHTML = isSpecial;
+      return;
+    } else {
+      confirmSpecialCharacters() ;
+    }
+
   } else if (isSpecial === null ) {
     return;
   } else {
