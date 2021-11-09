@@ -2,6 +2,8 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
+// WHEN the password is generated
+// THEN the password is either displayed in an alert or written to the page
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -133,9 +135,121 @@ function selectAtLeastOne () {
     confirmLowercaseCharacters();
     return;
   } else {
-    document.getElementById("password").innerHTML = isSpecial;
+    generatePassword();
     return;
   }
 }
 
 // THEN a password is generated that matches the selected criteria
+function generatePassword () {
+  if (isLowercase === "Yes" && isUppercase === "No" && isNumeric === "No" && isSpecial === "No") {
+    var charset = "abcdefghijklmnopqrstuvwxyz";
+    var password = "";
+    for (var i = 0, x = charset.length; i < parseInt(passwordLength); i++) {
+      password += charset.charAt(Math.random() * x);
+    }
+    return password;
+  } else if (isLowercase === "Yes" && isUppercase === "Yes" && isNumeric === "No" && isSpecial === "No") {
+    var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var password = "";
+    for (var i = 0, x = charset.length; i < parseInt(passwordLength); i++) {
+      password += charset.charAt(Math.random() * x);
+    }
+    return password;
+  } else if (isLowercase === "Yes" && isUppercase === "Yes" && isNumeric === "Yes" && isSpecial === "No") {
+    var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    var password = "";
+    for (var i = 0, x = charset.length; i < parseInt(passwordLength); i++) {
+      password += charset.charAt(Math.random() * x);
+    }
+    return password;
+  } else if (isLowercase === "Yes" && isUppercase === "Yes" && isNumeric === "Yes" && isSpecial === "Yes") {
+    var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 !\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
+    var password = "";
+    for (var i = 0, x = charset.length; i < parseInt(passwordLength); i++) {
+      password += charset.charAt(Math.random() * x);
+    }
+    return password;
+  } else if (isLowercase === "No" && isUppercase === "Yes" && isNumeric === "Yes" && isSpecial === "Yes") {
+    var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 !\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
+    var password = "";
+    for (var i = 0, x = charset.length; i < parseInt(passwordLength); i++) {
+      password += charset.charAt(Math.random() * x);
+    }
+    return password;
+  } else if (isLowercase === "No" && isUppercase === "No" && isNumeric === "Yes" && isSpecial === "Yes") {
+    var charset = "0123456789 !\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
+    var password = "";
+    for (var i = 0, x = charset.length; i < parseInt(passwordLength); i++) {
+      password += charset.charAt(Math.random() * x);
+    }
+    return password;
+  } else if (isLowercase === "No" && isUppercase === "No" && isNumeric === "No" && isSpecial === "Yes") {
+    var charset = " !\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
+    var password = "";
+    for (var i = 0, x = charset.length; i < parseInt(passwordLength); i++) {
+      password += charset.charAt(Math.random() * x);
+    }
+    return password;
+  } else if (isLowercase === "No" && isUppercase === "No" && isNumeric === "Yes" && isSpecial === "No") {
+    var charset = "0123456789";
+    var password = "";
+    for (var i = 0, x = charset.length; i < parseInt(passwordLength); i++) {
+      password += charset.charAt(Math.random() * x);
+    }
+    return password;
+  } else if (isLowercase === "No" && isUppercase === "Yes" && isNumeric === "No" && isSpecial === "No") {
+    var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var password = "";
+    for (var i = 0, x = charset.length; i < parseInt(passwordLength); i++) {
+      password += charset.charAt(Math.random() * x);
+    }
+    return password;
+  } else if (isLowercase === "Yes" && isUppercase === "No" && isNumeric === "Yes" && isSpecial === "Yes") {
+    var charset = "abcdefghijklmnopqrstuvwxyz0123456789 !\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
+    var password = "";
+    for (var i = 0, x = charset.length; i < parseInt(passwordLength); i++) {
+      password += charset.charAt(Math.random() * x);
+    }
+    return password;
+  } else if (isLowercase === "Yes" && isUppercase === "No" && isNumeric === "No" && isSpecial === "Yes") {
+    var charset = "abcdefghijklmnopqrstuvwxyz !\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
+    var password = "";
+    for (var i = 0, x = charset.length; i < parseInt(passwordLength); i++) {
+      password += charset.charAt(Math.random() * x);
+    }
+    return password;
+  } else if (isLowercase === "Yes" && isUppercase === "No" && isNumeric === "Yes" && isSpecial === "No") {
+    var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
+    var password = "";
+    for (var i = 0, x = charset.length; i < parseInt(passwordLength); i++) {
+      password += charset.charAt(Math.random() * x);
+    }
+    return password;
+  } else if (isLowercase === "No" && isUppercase === "Yes" && isNumeric === "No" && isSpecial === "Yes") {
+    var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ !\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
+    var password = "";
+    for (var i = 0, x = charset.length; i < parseInt(passwordLength); i++) {
+      password += charset.charAt(Math.random() * x);
+    }
+    return password;
+  } else if (isLowercase === "No" && isUppercase === "Yes" && isNumeric === "Yes" && isSpecial === "No") {
+    var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    var password = "";
+    for (var i = 0, x = charset.length; i < parseInt(passwordLength); i++) {
+      password += charset.charAt(Math.random() * x);
+    }
+    return password;
+  } else if (isLowercase === "Yes" && isUppercase === "Yes" && isNumeric === "No" && isSpecial === "Yes") {
+    var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
+    var password = "";
+    for (var i = 0, x = charset.length; i < parseInt(passwordLength); i++) {
+      password += charset.charAt(Math.random() * x);
+    }
+    return password;
+  }
+  else {
+    console.log("an error happened");
+    return;
+  }
+}
